@@ -5,6 +5,7 @@ import co.com.sofka.domain.generic.DomainEvent;
 import com.exercise.Events.CarrilCreado;
 import com.exercise.Events.CarroAsignado;
 import com.exercise.Events.KilometrajeCambiado;
+import com.exercise.Events.LimiteAsignado;
 import com.exercise.VO.CarroId;
 import com.exercise.VO.NumeroCarril;
 import com.exercise.VO.TipoCarro;
@@ -14,7 +15,7 @@ import java.util.List;
 public class Carril extends AggregateEvent<NumeroCarril> {
 
     protected Integer limite;
-    protected Carro Carro;
+    protected com.exercise.Carro Carro;
 
     private Carril(NumeroCarril numeroCarril){
         super(numeroCarril);
@@ -36,8 +37,12 @@ public class Carril extends AggregateEvent<NumeroCarril> {
         appendChange(new CarroAsignado(carroId, conductor, tipoCarro)).apply();
     }
 
-    public void cambiarKilometraje(Integer distancia){
-        appendChange(new KilometrajeCambiado(distancia)).apply();
+    public void asignarLimiteAcarril(Integer limite) {
+        appendChange(new LimiteAsignado(limite)).apply();
+    }
+
+    public void moverCarro(NumeroCarril numeroCarril) {
+        appendChange(new KilometrajeCambiado(numeroCarril.value())).apply();
     }
 
     public Integer Limite() {

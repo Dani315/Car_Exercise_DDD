@@ -13,8 +13,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 class AsignarCarroUseCaseTest  extends  UseCaseHandleBaseTest{
 
@@ -23,16 +22,17 @@ class AsignarCarroUseCaseTest  extends  UseCaseHandleBaseTest{
 
         var useCase = new AsignarCarroUseCase();
 
-        useCase.addRepository(repository);
-
         when(repository.getEventsBy(anyString())).thenReturn(List.of(
                 new CarrilCreado(NumeroCarril.of("101"), 6000)
         ));
 
+        useCase.addRepository(repository);
+
         var request = new RequestCommand<>(new AsignarCarroCommand(
                 NumeroCarril.of("101"),
                 CarroId.of("MX5124"),
-                new Conductor(new Cedula("1001359866"),"Daniela Gaviria Mena", new Informacion(20, "5 años")),
+                new Conductor(new Cedula("1001359866"),"Daniela Gaviria Mena",
+                        new Informacion(20, "5 años")),
                 new TipoCarro("2015", "Dorado")
         ));
 
@@ -43,10 +43,12 @@ class AsignarCarroUseCaseTest  extends  UseCaseHandleBaseTest{
                 .asyncExecutor(useCase, request)
                 .subscribe(subscriber);
 
-        verify(subscriber).onNext(eventCaptor.capture());
+        //verify(subscriber).onNext(eventCaptor.capture());
+        verify(subscriber, times(1)).onNext(eventCaptor.capture());
 
         var carroAsignado = (CarroAsignado) eventCaptor.getAllValues().get(0);
         Assertions.assertEquals("MX5124", carroAsignado.getCarroId().value());
         Assertions.assertEquals(20, carroAsignado.getConductor().Informacion().value().edad());
     }
+
 }

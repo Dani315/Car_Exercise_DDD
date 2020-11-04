@@ -12,4 +12,6 @@ public class NumeroCarril extends Identity {
         return new NumeroCarril(value);
     }
 
+    public NumeroCarril() {
+    }
 }

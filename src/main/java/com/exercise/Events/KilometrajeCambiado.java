@@ -2,16 +2,18 @@ package com.exercise.Events;
 
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.generic.Incremental;
+import com.exercise.VO.*;
 
 public class KilometrajeCambiado extends DomainEvent implements Incremental {
-    private final Integer distancia;
+    private final NumeroCarril numeroCarril;
 
-    public KilometrajeCambiado(Integer distancia) {
+
+    public KilometrajeCambiado(String numeroCarril) {
         super("com.exercise.KilometrajeCambiado");
-        this.distancia = distancia;
+        this.numeroCarril = new NumeroCarril(numeroCarril);
     }
 
-    public Integer getDistancia() {
-        return distancia;
+    public NumeroCarril getNumeroCarril() {
+        return numeroCarril;
     }
 }

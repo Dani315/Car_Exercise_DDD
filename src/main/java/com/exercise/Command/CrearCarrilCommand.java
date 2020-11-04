@@ -1,7 +1,9 @@
 package com.exercise.Command;
 
 import co.com.sofka.domain.generic.Command;
+import com.exercise.Carro;
 import com.exercise.VO.NumeroCarril;
+import com.exercise.VO.TipoCarro;
 
 public class CrearCarrilCommand implements Command {
     private NumeroCarril numeroCarril;

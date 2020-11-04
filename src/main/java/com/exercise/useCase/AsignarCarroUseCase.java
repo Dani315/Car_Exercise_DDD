@@ -13,7 +13,7 @@ public class AsignarCarroUseCase extends UseCase<RequestCommand<AsignarCarroComm
 
         Carril carril = Carril.from(command.getNumeroCarril(), retrieveEvents());
         carril.asignarCarro(command.getCarroId(), command.getConductor(), command.getTipoCarro());
-
+        //carril.moverCarro(command.getNumeroCarril());
         emit().onSuccess(new ResponseEvents(carril.getUncommittedChanges()));
     }
 }
