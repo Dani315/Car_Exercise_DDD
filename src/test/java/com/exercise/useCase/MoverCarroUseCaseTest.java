@@ -7,15 +7,12 @@ import com.exercise.pista.events.CarrilCreado;
 import com.exercise.pista.events.CarroAsignadoACarril;
 import com.exercise.pista.events.KilometrajeCambiado;
 import com.exercise.pista.events.PistaCreada;
-import com.exercise.useCase.MoverCarroUseCase;
-import com.exercise.useCase.UseCaseHandleBaseTest;
 import com.exercise.pista.values.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
@@ -33,8 +30,8 @@ public class MoverCarroUseCaseTest extends UseCaseHandleBaseTest {
                                 new Cedula("1001359866"),"Daniela Gaviria Mena",
                                 new Informacion(20, "5 años")),
                         new TipoCarro("2015", "Dorado"),
-                        NumeroCarril.of("101")
-                )
+                        NumeroCarril.of("101"),
+                        CodigoPista.of("101xxx"))
         ));
 
         useCase.addRepository(repository);

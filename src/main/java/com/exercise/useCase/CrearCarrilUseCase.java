@@ -19,7 +19,8 @@ public class CrearCarrilUseCase  extends UseCase<RequestCommand<CrearCarrilComma
                 command.getPlaca(),
                 command.getConductor(),
                 command.getTipoCarro(),
-                command.getNumeroCarril());
+                command.getNumeroCarril(),
+                command.getCodigoPista());
 
         emit().onSuccess(new ResponseEvents(pista.getUncommittedChanges()));
     }

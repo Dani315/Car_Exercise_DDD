@@ -7,8 +7,6 @@ import com.exercise.pista.events.CarrilCreado;
 import com.exercise.pista.events.CarroAsignadoACarril;
 import com.exercise.pista.events.KilometrajeCambiado;
 import com.exercise.pista.events.PistaCreada;
-import com.exercise.useCase.UseCaseHandleBaseTest;
-import com.exercise.useCase.ValidarCarroFinalizoRecorridoUseCase;
 import com.exercise.pista.values.*;
 import com.exercise.videoJuego.events.RondaJugada;
 import com.exercise.videoJuego.events.VideoJuegoCreado;
@@ -17,7 +15,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -37,8 +34,8 @@ class ValidarCarroFinalizoRecorridoUseCaseTest  extends UseCaseHandleBaseTest {
                                 new Cedula("1001359866"),"Daniela Gaviria Mena",
                                 new Informacion(20, "5 años")),
                         new TipoCarro("2015", "Dorado"),
-                        NumeroCarril.of("101")
-                ),
+                        NumeroCarril.of("101"),
+                        CodigoPista.of("101xxx")),
                 new KilometrajeCambiado(NumeroCarril.of("101").value(), CodigoPista.of("101xxx").value()),
                 new KilometrajeCambiado(NumeroCarril.of("101").value(), CodigoPista.of("101xxx").value()),
                 new KilometrajeCambiado(NumeroCarril.of("101").value(), CodigoPista.of("101xxx").value())

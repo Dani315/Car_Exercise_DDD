@@ -38,8 +38,8 @@ public class Pista extends AggregateEvent<CodigoPista> {
         appendChange(new CarrilCreado(numeroCarril, limite)).apply();
     }
 
-    public void AsignarCarroACarril(Placa placa, Conductor conductor, TipoCarro tipoCarro, NumeroCarril numeroCarril) {
-        appendChange(new CarroAsignadoACarril(placa,conductor,tipoCarro,numeroCarril)).apply();
+    public void AsignarCarroACarril(Placa placa, Conductor conductor, TipoCarro tipoCarro, NumeroCarril numeroCarril, CodigoPista codigoPista) {
+        appendChange(new CarroAsignadoACarril(placa,conductor,tipoCarro,numeroCarril, codigoPista)).apply();
     }
 
     public void MoverCarro(NumeroCarril numeroCarril, CodigoPista codigoPista) {
