@@ -1,8 +1,8 @@
-package com.exercise;
+package com.exercise.pista.entities;
 
 import co.com.sofka.domain.generic.Entity;
-import com.exercise.VO.Cedula;
-import com.exercise.VO.Informacion;
+import com.exercise.pista.values.Cedula;
+import com.exercise.pista.values.Informacion;
 
 import java.util.Random;
 

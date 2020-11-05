@@ -1,10 +1,10 @@
-package com.exercise.VO;
+package com.exercise.pista.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class TipoCarro implements ValueObject<TipoCarro.Propiedades> {
+public class TipoCarro  implements ValueObject<TipoCarro.Propiedades> {
     private final String modelo;
     private final String color;
 

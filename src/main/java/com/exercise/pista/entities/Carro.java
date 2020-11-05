@@ -1,21 +1,20 @@
-package com.exercise;
-
+package com.exercise.pista.entities;
 
 import co.com.sofka.domain.generic.Entity;
-import com.exercise.VO.CarroId;
-import com.exercise.VO.DistanciaRecorrida;
-import com.exercise.VO.TipoCarro;
+import com.exercise.pista.values.DistanciaRecorrida;
+import com.exercise.pista.values.Placa;
+import com.exercise.pista.values.TipoCarro;
 
-public class Carro extends Entity<CarroId> {
-    protected  Conductor conductor;
-    protected TipoCarro tipoCarro;
+public class Carro extends Entity<Placa> {
+    protected Conductor conductor;
     protected DistanciaRecorrida distanciaRecorrida;
+    protected TipoCarro tipoCarro;
 
-    public Carro(CarroId placa, Conductor conductor, TipoCarro tipoCarro) {
-        super(placa);
+    public Carro(Placa entityId, Conductor conductor,TipoCarro tipoCarro) {
+        super(entityId);
         this.conductor = conductor;
-        this.tipoCarro = tipoCarro;
         this.distanciaRecorrida = new DistanciaRecorrida(0);
+        this.tipoCarro = tipoCarro;
     }
 
     public void avanzarMetros() {
@@ -27,11 +26,11 @@ public class Carro extends Entity<CarroId> {
         return conductor;
     }
 
-    public TipoCarro getTipoCarro() {
-        return tipoCarro;
-    }
-
     public DistanciaRecorrida getDistanciaRecorrida() {
         return distanciaRecorrida;
+    }
+
+    public TipoCarro getTipoCarro() {
+        return tipoCarro;
     }
 }

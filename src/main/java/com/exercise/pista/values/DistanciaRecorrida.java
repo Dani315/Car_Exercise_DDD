@@ -1,10 +1,10 @@
-package com.exercise.VO;
+package com.exercise.pista.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class DistanciaRecorrida implements ValueObject<Integer> {
+public class DistanciaRecorrida  implements ValueObject<Integer> {
     private final int distancia;
 
     public DistanciaRecorrida(int distancia) {
