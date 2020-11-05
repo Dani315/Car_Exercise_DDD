@@ -2,6 +2,7 @@ package com.exercise.videoJuego;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
+import com.exercise.pista.entities.Carril;
 import com.exercise.pista.entities.Carro;
 import com.exercise.videoJuego.events.PrimerLugarAsignado;
 import com.exercise.videoJuego.events.SegundoLugarAsignado;
@@ -32,16 +33,24 @@ public class VideoJuego  extends AggregateEvent<CodigoJuego>  {
         return juego;
     }
 
-    public void asignarAPodium(Carro carroGanador) {
+    public void asignarPrimerLugar(Carro carroGanador) {
+        appendChange(new PrimerLugarAsignado(carroGanador)).apply();
+    }
 
-        if(podium.value().primerLugar() != null) {
-            appendChange(new PrimerLugarAsignado(carroGanador)).apply();
-        }else if (podium.value().segundoLugar() != null) {
-            appendChange(new SegundoLugarAsignado(carroGanador)).apply();
-        }else if (podium.value().tercerLugar() != null) {
-            appendChange(new TercerLugarAsignado(carroGanador)).apply();
-        }else {
-            throw new IllegalArgumentException("No puede asignar al podio");
-        }
+    public void asignarSegundoLugar(Carro carroGanador) {
+        appendChange(new SegundoLugarAsignado(carroGanador)).apply();
+    }
+
+    public void asignarTercerLugar(Carro carroGanador) {
+        appendChange(new TercerLugarAsignado(carroGanador)).apply();
+    }
+
+
+    public Podium getPodium() {
+        return podium;
+    }
+
+    public boolean isEstado() {
+        return estado;
     }
 }

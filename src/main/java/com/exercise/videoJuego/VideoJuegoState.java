@@ -5,12 +5,14 @@ import com.exercise.videoJuego.events.PrimerLugarAsignado;
 import com.exercise.videoJuego.events.SegundoLugarAsignado;
 import com.exercise.videoJuego.events.TercerLugarAsignado;
 import com.exercise.videoJuego.events.VideoJuegoCreado;
+import com.exercise.videoJuego.values.Podium;
 
 public class VideoJuegoState extends EventChange {
     public VideoJuegoState(VideoJuego videoJuego) {
 
         apply((VideoJuegoCreado event) -> {
             videoJuego.estado = event.isEstado();
+            videoJuego.podium = new Podium();
         });
 
         apply((PrimerLugarAsignado event) -> {

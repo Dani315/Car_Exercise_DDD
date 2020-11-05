@@ -18,9 +18,11 @@ public class MoverCarroUseCase extends UseCase<TriggeredEvent<KilometrajeCambiad
         var event = triggeredEvent.getDomainEvent();
 
         var pista = Pista.from(event.getCodigoPista(), retrieveEvents());
+
         pista.MoverCarro(event.getNumeroCarril(), event.getCodigoPista());
         pista.MoverCarro(event.getNumeroCarril(), event.getCodigoPista());
         pista.MoverCarro(event.getNumeroCarril(), event.getCodigoPista());
+
         emit().onSuccess(new ResponseEvents(pista.getUncommittedChanges()));
     }
 }

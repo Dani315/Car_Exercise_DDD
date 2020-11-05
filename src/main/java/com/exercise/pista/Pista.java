@@ -45,4 +45,8 @@ public class Pista extends AggregateEvent<CodigoPista> {
     public void MoverCarro(NumeroCarril numeroCarril, CodigoPista codigoPista) {
         appendChange(new KilometrajeCambiado(numeroCarril.value(), codigoPista.value())).apply();
     }
+
+    public List<Carril> getListaCarriles() {
+        return listaCarriles;
+    }
 }
