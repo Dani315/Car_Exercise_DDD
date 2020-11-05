@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="car_exercise_ddd" />
         <module name="carExercise" />
+        <module name="Car_Exercise_DDD" />
       </profile>
     </annotationProcessing>
   </component>

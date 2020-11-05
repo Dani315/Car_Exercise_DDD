@@ -1,4 +1,4 @@
-package com.exercise.pista.useCase;
+package com.exercise.useCase;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
@@ -7,6 +7,8 @@ import com.exercise.pista.entities.Conductor;
 import com.exercise.pista.events.CarrilCreado;
 import com.exercise.pista.events.CarroAsignadoACarril;
 import com.exercise.pista.events.PistaCreada;
+import com.exercise.useCase.CrearCarrilUseCase;
+import com.exercise.useCase.UseCaseHandleBaseTest;
 import com.exercise.pista.values.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

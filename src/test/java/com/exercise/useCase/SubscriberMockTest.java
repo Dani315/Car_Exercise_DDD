@@ -1,4 +1,4 @@
-package com.exercise.pista.useCase;
+package com.exercise.useCase;
 
 import co.com.sofka.domain.generic.DomainEvent;
 

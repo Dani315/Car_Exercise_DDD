@@ -1,8 +1,9 @@
-package com.exercise.pista.useCase;
+package com.exercise.useCase;
 
 import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.domain.generic.DomainEvent;
+import com.exercise.useCase.SubscriberMockTest;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;

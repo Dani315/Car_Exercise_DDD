@@ -1,4 +1,4 @@
-package com.exercise.pista.useCase;
+package com.exercise.useCase;
 
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;

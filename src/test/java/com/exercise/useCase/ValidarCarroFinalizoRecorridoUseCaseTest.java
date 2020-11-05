@@ -1,4 +1,4 @@
-package com.exercise.pista.useCase;
+package com.exercise.useCase;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.TriggeredEvent;
@@ -7,20 +7,22 @@ import com.exercise.pista.events.CarrilCreado;
 import com.exercise.pista.events.CarroAsignadoACarril;
 import com.exercise.pista.events.KilometrajeCambiado;
 import com.exercise.pista.events.PistaCreada;
+import com.exercise.useCase.UseCaseHandleBaseTest;
+import com.exercise.useCase.ValidarCarroFinalizoRecorridoUseCase;
 import com.exercise.pista.values.*;
 import com.exercise.videoJuego.events.RondaJugada;
 import com.exercise.videoJuego.events.VideoJuegoCreado;
 import com.exercise.videoJuego.values.CodigoJuego;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-class ValidarCarroFinalizoRecorridoUseCaseTest  extends UseCaseHandleBaseTest{
+class ValidarCarroFinalizoRecorridoUseCaseTest  extends UseCaseHandleBaseTest {
     @Test
     void validarCarroFinalizoRecorridoTest_happyPath() {
 

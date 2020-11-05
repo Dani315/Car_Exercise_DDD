@@ -1,4 +1,4 @@
-package com.exercise.pista.useCase;
+package com.exercise.useCase;
 
 import co.com.sofka.business.annotation.EventListener;
 import co.com.sofka.business.generic.UseCase;
@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 @EventListener(eventType = "com.exercise.videoJuego.RondaJugada")
 public class ValidarCarroFinalizoRecorridoUseCase extends UseCase<TriggeredEvent<RondaJugada>, ResponseEvents> {
 
-    private static final Logger logger = Logger.getLogger(ValidarCarroFinalizoRecorridoUseCase.class.getName());
+    private static final Logger logger = Logger.getLogger(com.exercise.useCase.ValidarCarroFinalizoRecorridoUseCase.class.getName());
 
     @Override
     public void executeUseCase(TriggeredEvent<RondaJugada> triggeredEvent) {
@@ -29,22 +29,22 @@ public class ValidarCarroFinalizoRecorridoUseCase extends UseCase<TriggeredEvent
                 .findFirst()
                 .get();
 
-            if(carril.Carro().DistanciaRecorrida().value() >= carril.Limite()
-                    && videoJuego.getPodium().isPodiumDisponible()) {
-                if (videoJuego.getPodium().value().primerLugar() != null) {
-                    videoJuego.asignarPrimerLugar(carril.Carro());
+        if(carril.Carro().DistanciaRecorrida().value() >= carril.Limite()
+                && videoJuego.getPodium().isPodiumDisponible()) {
+            if (videoJuego.getPodium().value().primerLugar() != null) {
+                videoJuego.asignarPrimerLugar(carril.Carro());
+            } else {
+                if (videoJuego.getPodium().value().segundoLugar() != null) {
+                    videoJuego.asignarSegundoLugar(carril.Carro());
                 } else {
-                    if (videoJuego.getPodium().value().segundoLugar() != null) {
-                        videoJuego.asignarSegundoLugar(carril.Carro());
-                    } else {
-                        videoJuego.asignarTercerLugar(carril.Carro());
-                        videoJuego.finalizarVideoJuego();
-                    }
+                    videoJuego.asignarTercerLugar(carril.Carro());
+                    videoJuego.finalizarVideoJuego();
                 }
-                logger.log(Level.INFO, "El carro finalizó su recorrido");
-            }else {
-                logger.log(Level.INFO, "El carro no finalizó  su recorrido");
             }
+            logger.log(Level.INFO, "El carro finalizó su recorrido");
+        }else {
+            logger.log(Level.INFO, "El carro no finalizó  su recorrido");
+        }
 
         emit().onSuccess(new ResponseEvents(pista.getUncommittedChanges()));
     }

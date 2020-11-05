@@ -1,9 +1,11 @@
-package com.exercise.pista.useCase;
+package com.exercise.useCase;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import com.exercise.pista.command.CrearPistaCommand;
 import com.exercise.pista.events.PistaCreada;
+import com.exercise.useCase.CrearPistaUseCase;
+import com.exercise.useCase.UseCaseHandleBaseTest;
 import com.exercise.pista.values.CodigoPista;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
