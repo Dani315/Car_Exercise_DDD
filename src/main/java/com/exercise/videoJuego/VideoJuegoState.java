@@ -28,7 +28,7 @@ public class VideoJuegoState extends EventChange {
         });
         apply((TercerLugarAsignado event) -> {
             if (videoJuego.estado && videoJuego.podium.isPodiumDisponible()) {
-                videoJuego.podium = videoJuego.podium.asignarSegundoLugar(event.getCarroGanador());
+                videoJuego.podium = videoJuego.podium.asignarTercerLugar(event.getCarroGanador());
             } else {
                 throw new IllegalArgumentException("No puede asignar al podium");
             }

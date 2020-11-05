@@ -7,7 +7,7 @@ public class TercerLugarAsignado extends DomainEvent {
     private final Carro carroGanador;
 
     public TercerLugarAsignado(Carro carroGanador) {
-        super("com.exercise.pista.TercerLugarAsignado");
+        super("com.exercise.videoJuego.TercerLugarAsignado");
         this.carroGanador = carroGanador;
     }
 

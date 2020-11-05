@@ -47,10 +47,10 @@ class ValidarCarroFinalizoRecorridoUseCaseTest  extends UseCaseHandleBaseTest {
 
         useCase.addRepository(repository);
 
-        RondaJugada event = new RondaJugada(CodigoJuego.of("123456"),CodigoPista.of("101xxx"), NumeroCarril.of("101"));
+        RondaJugada event = new RondaJugada(CodigoJuego.of("123"),CodigoPista.of("101xxx"), NumeroCarril.of("101"));
 
         UseCaseHandler.getInstance()
-                .setIdentifyExecutor("123456")
+                .setIdentifyExecutor("123")
                 .asyncExecutor(useCase, new TriggeredEvent<>(event))
                 .subscribe(subscriber);
 
