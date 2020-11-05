@@ -43,7 +43,7 @@ public class MoverCarroUseCaseTest extends UseCaseHandleBaseTest{
                 .asyncExecutor(useCase, new TriggeredEvent<>(event))
                 .subscribe(subscriber);
         //verify(subscriber).onNext(eventCaptor.capture());
-        verify(subscriber, times(1)).onNext(eventCaptor.capture());
+        verify(subscriber, times(3)).onNext(eventCaptor.capture());
         KilometrajeCambiado kmc = (KilometrajeCambiado)eventCaptor.getAllValues().get(0);
         Assertions.assertEquals("101", kmc.getNumeroCarril().value());
         Assertions.assertEquals("101xxx", kmc.getCodigoPista().value());
