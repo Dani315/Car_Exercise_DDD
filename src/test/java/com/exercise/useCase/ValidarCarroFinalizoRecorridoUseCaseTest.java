@@ -10,6 +10,7 @@ import com.exercise.pista.events.PistaCreada;
 import com.exercise.pista.values.*;
 import com.exercise.videoJuego.events.RondaJugada;
 import com.exercise.videoJuego.events.VideoJuegoCreado;
+import com.exercise.videoJuego.events.VideoJuegoEmpezado;
 import com.exercise.videoJuego.values.CodigoJuego;
 import org.junit.jupiter.api.Test;
 
@@ -27,6 +28,7 @@ class ValidarCarroFinalizoRecorridoUseCaseTest  extends UseCaseHandleBaseTest {
 
         when(repository.getEventsBy(anyString())).thenReturn(List.of(
                 new VideoJuegoCreado(),
+                new VideoJuegoEmpezado(),
                 new PistaCreada(CodigoPista.of("101xxx"), 5),
                 new CarrilCreado(NumeroCarril.of("101"), 600),
                 new CarroAsignadoACarril(Placa.of("MX5124"),
