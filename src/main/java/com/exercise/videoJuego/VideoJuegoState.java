@@ -1,17 +1,14 @@
 package com.exercise.videoJuego;
 
 import co.com.sofka.domain.generic.EventChange;
-import com.exercise.videoJuego.events.PrimerLugarAsignado;
-import com.exercise.videoJuego.events.SegundoLugarAsignado;
-import com.exercise.videoJuego.events.TercerLugarAsignado;
-import com.exercise.videoJuego.events.VideoJuegoCreado;
+import com.exercise.videoJuego.events.*;
 import com.exercise.videoJuego.values.Podium;
 
 public class VideoJuegoState extends EventChange {
     public VideoJuegoState(VideoJuego videoJuego) {
 
         apply((VideoJuegoCreado event) -> {
-            videoJuego.estado = event.isEstado();
+            videoJuego.estado = true;
             videoJuego.podium = new Podium();
         });
 
@@ -35,6 +32,10 @@ public class VideoJuegoState extends EventChange {
             } else {
                 throw new IllegalArgumentException("No puede asignar al podium");
             }
+        });
+
+        apply((VideoJuegoFinalizado event) -> {
+            videoJuego.estado = false;
         });
     }
 }

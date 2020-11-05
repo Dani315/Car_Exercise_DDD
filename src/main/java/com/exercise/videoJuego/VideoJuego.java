@@ -4,10 +4,7 @@ import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import com.exercise.pista.entities.Carril;
 import com.exercise.pista.entities.Carro;
-import com.exercise.videoJuego.events.PrimerLugarAsignado;
-import com.exercise.videoJuego.events.SegundoLugarAsignado;
-import com.exercise.videoJuego.events.TercerLugarAsignado;
-import com.exercise.videoJuego.events.VideoJuegoCreado;
+import com.exercise.videoJuego.events.*;
 import com.exercise.videoJuego.values.CodigoJuego;
 import com.exercise.videoJuego.values.Podium;
 
@@ -19,7 +16,7 @@ public class VideoJuego  extends AggregateEvent<CodigoJuego>  {
 
     public VideoJuego(CodigoJuego entityId, boolean estado) {
         super(entityId);
-        appendChange(new VideoJuegoCreado(estado)).apply();
+        appendChange(new VideoJuegoCreado()).apply();
     }
 
     private VideoJuego(CodigoJuego entityId) {
@@ -45,6 +42,9 @@ public class VideoJuego  extends AggregateEvent<CodigoJuego>  {
         appendChange(new TercerLugarAsignado(carroGanador)).apply();
     }
 
+    public void finalizarVideoJuego() {
+        appendChange(new VideoJuegoFinalizado()).apply();
+    }
 
     public Podium getPodium() {
         return podium;

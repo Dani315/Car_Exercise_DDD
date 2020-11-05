@@ -27,7 +27,7 @@ class ValidarCarroFinalizoRecorridoUseCaseTest  extends UseCaseHandleBaseTest{
         var useCase = new ValidarCarroFinalizoRecorridoUseCase();
 
         when(repository.getEventsBy(anyString())).thenReturn(List.of(
-                new VideoJuegoCreado(CodigoJuego.of("123456"),true),
+                new VideoJuegoCreado(),
                 new PistaCreada(CodigoPista.of("101xxx"), 5),
                 new CarrilCreado(NumeroCarril.of("101"), 600),
                 new CarroAsignadoACarril(Placa.of("MX5124"),
@@ -52,11 +52,7 @@ class ValidarCarroFinalizoRecorridoUseCaseTest  extends UseCaseHandleBaseTest{
                 .asyncExecutor(useCase, new TriggeredEvent<>(event))
                 .subscribe(subscriber);
 
-        //verify(subscriber).onNext(eventCaptor.capture());
+
         verify(subscriber).onComplete();
-       //verify(subscriber, times(2)).onNext(eventCaptor.capture());
-        //KilometrajeCambiado kmc = (KilometrajeCambiado)eventCaptor.getAllValues().get(0);
-        //Assertions.assertEquals("101", kmc.getNumeroCarril().value());
-        //Assertions.assertEquals("101xxx", kmc.getCodigoPista().value());
     }
 }

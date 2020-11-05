@@ -38,6 +38,7 @@ public class ValidarCarroFinalizoRecorridoUseCase extends UseCase<TriggeredEvent
                         videoJuego.asignarSegundoLugar(carril.Carro());
                     } else {
                         videoJuego.asignarTercerLugar(carril.Carro());
+                        videoJuego.finalizarVideoJuego();
                     }
                 }
                 logger.log(Level.INFO, "El carro finalizó su recorrido");
