@@ -46,6 +46,10 @@ public class VideoJuego  extends AggregateEvent<CodigoJuego>  {
         appendChange(new VideoJuegoFinalizado()).apply();
     }
 
+    public void empezarVideoJuego() {
+        appendChange(new VideoJuegoEmpezado()).apply();
+    }
+
     public Podium getPodium() {
         return podium;
     }

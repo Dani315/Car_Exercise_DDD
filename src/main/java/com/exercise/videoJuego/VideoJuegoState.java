@@ -8,7 +8,7 @@ public class VideoJuegoState extends EventChange {
     public VideoJuegoState(VideoJuego videoJuego) {
 
         apply((VideoJuegoCreado event) -> {
-            videoJuego.estado = true;
+            videoJuego.estado = false;
             videoJuego.podium = new Podium();
         });
 
@@ -36,6 +36,10 @@ public class VideoJuegoState extends EventChange {
 
         apply((VideoJuegoFinalizado event) -> {
             videoJuego.estado = false;
+        });
+
+        apply((VideoJuegoEmpezado event) -> {
+            videoJuego.estado = true;
         });
     }
 }
