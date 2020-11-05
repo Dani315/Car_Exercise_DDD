@@ -16,7 +16,7 @@ import java.util.List;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
-public class MoverCarroUseCaseTest  extends  UseCaseHandleBaseTest{
+public class MoverCarroUseCaseTest extends UseCaseHandleBaseTest{
     @Test
     void moverCarroTest_happyPath() {
 

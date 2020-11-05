@@ -16,7 +16,7 @@ import com.exercise.pista.values.TipoCarro;
 import java.util.List;
 
 public class Pista extends AggregateEvent<CodigoPista> {
-    List<Carril> listaCarriles;
+    protected List<Carril> listaCarriles;
 
     private Pista(CodigoPista entityId){
         super(entityId);
@@ -35,14 +35,14 @@ public class Pista extends AggregateEvent<CodigoPista> {
     }
 
     public void crearCarril(NumeroCarril numeroCarril, Integer limite) {
-        appendChange(new CarrilCreado(numeroCarril, limite));
+        appendChange(new CarrilCreado(numeroCarril, limite)).apply();
     }
 
     public void AsignarCarroACarril(Placa placa, Conductor conductor, TipoCarro tipoCarro, NumeroCarril numeroCarril) {
-        appendChange(new CarroAsignadoACarril(placa,conductor,tipoCarro,numeroCarril));
+        appendChange(new CarroAsignadoACarril(placa,conductor,tipoCarro,numeroCarril)).apply();
     }
 
     public void MoverCarro(NumeroCarril numeroCarril, CodigoPista codigoPista) {
-        appendChange(new KilometrajeCambiado(numeroCarril.value(), codigoPista.value()));
+        appendChange(new KilometrajeCambiado(numeroCarril.value(), codigoPista.value())).apply();
     }
 }

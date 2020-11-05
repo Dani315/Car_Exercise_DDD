@@ -11,7 +11,6 @@ import java.util.logging.Logger;
 
 @EventListener(eventType = "com.exercise.pista.KilometrajeCambiado")
 public class MoverCarroUseCase extends UseCase<TriggeredEvent<KilometrajeCambiado>, ResponseEvents> {
-    private static final Logger logger = Logger.getLogger(MoverCarroUseCase.class.getName());
 
     @Override
     public void  executeUseCase(TriggeredEvent<KilometrajeCambiado> triggeredEvent) {
@@ -20,7 +19,8 @@ public class MoverCarroUseCase extends UseCase<TriggeredEvent<KilometrajeCambiad
 
         var pista = Pista.from(event.getCodigoPista(), retrieveEvents());
         pista.MoverCarro(event.getNumeroCarril(), event.getCodigoPista());
-
+        pista.MoverCarro(event.getNumeroCarril(), event.getCodigoPista());
+        pista.MoverCarro(event.getNumeroCarril(), event.getCodigoPista());
         emit().onSuccess(new ResponseEvents(pista.getUncommittedChanges()));
     }
 }
