@@ -1,4 +1,4 @@
-package com.exercise.pista.events;
+package com.exercise.videoJuego.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
 import com.exercise.pista.entities.Carro;

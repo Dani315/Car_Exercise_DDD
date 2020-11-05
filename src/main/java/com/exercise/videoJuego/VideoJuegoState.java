@@ -1,11 +1,10 @@
 package com.exercise.videoJuego;
 
 import co.com.sofka.domain.generic.EventChange;
-import com.exercise.pista.Pista;
-import com.exercise.pista.events.*;
+import com.exercise.videoJuego.events.PrimerLugarAsignado;
+import com.exercise.videoJuego.events.SegundoLugarAsignado;
+import com.exercise.videoJuego.events.TercerLugarAsignado;
 import com.exercise.videoJuego.events.VideoJuegoCreado;
-
-import java.util.ArrayList;
 
 public class VideoJuegoState extends EventChange {
     public VideoJuegoState(VideoJuego videoJuego) {
