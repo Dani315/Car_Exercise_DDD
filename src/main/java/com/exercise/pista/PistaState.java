@@ -6,6 +6,7 @@ import com.exercise.pista.entities.Carril;
 import com.exercise.pista.entities.Carro;
 import com.exercise.pista.events.CarrilCreado;
 import com.exercise.pista.events.CarroAsignadoACarril;
+import com.exercise.pista.events.KilometrajeCambiado;
 import com.exercise.pista.events.PistaCreada;
 import com.exercise.pista.values.TipoCarro;
 
@@ -27,6 +28,11 @@ public class PistaState  extends EventChange {
             carril.asignarCarro(new Carro(event.getPlaca(),
                     event.getConductor(),
                     new TipoCarro(event.getTipoCarro().value().modelo(), event.getTipoCarro().value().color())));
+        });
+
+        apply((KilometrajeCambiado event) -> {
+            Carril carril = getCarril(pista, event.getNumeroCarril());
+            carril.Carro().avanzarMetros();
         });
     }
 

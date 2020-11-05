@@ -6,6 +6,7 @@ import com.exercise.pista.entities.Carril;
 import com.exercise.pista.entities.Conductor;
 import com.exercise.pista.events.CarrilCreado;
 import com.exercise.pista.events.CarroAsignadoACarril;
+import com.exercise.pista.events.KilometrajeCambiado;
 import com.exercise.pista.events.PistaCreada;
 import com.exercise.pista.values.CodigoPista;
 import com.exercise.pista.values.NumeroCarril;
@@ -39,5 +40,9 @@ public class Pista extends AggregateEvent<CodigoPista> {
 
     public void AsignarCarroACarril(Placa placa, Conductor conductor, TipoCarro tipoCarro, NumeroCarril numeroCarril) {
         appendChange(new CarroAsignadoACarril(placa,conductor,tipoCarro,numeroCarril));
+    }
+
+    public void MoverCarro(NumeroCarril numeroCarril, CodigoPista codigoPista) {
+        appendChange(new KilometrajeCambiado(numeroCarril.value(), codigoPista.value()));
     }
 }

@@ -13,11 +13,17 @@ public class Carril extends Entity<NumeroCarril> {
         this.limite = limite;
     }
 
-    public Carro getCarro() {
+    public Carril(NumeroCarril entityId, Carro carro,Integer limite) {
+        super(entityId);
+        this.carro = carro;
+        this.limite = limite;
+    }
+
+    public Carro Carro() {
         return carro;
     }
 
-    public Integer getLimite() {
+    public Integer Limite() {
         return limite;
     }
 

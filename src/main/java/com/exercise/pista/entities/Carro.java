@@ -22,15 +22,15 @@ public class Carro extends Entity<Placa> {
         distanciaRecorrida =  new DistanciaRecorrida(distanciaRecorrida.value() + metrosAvanzados);
     }
 
-    public Conductor getConductor() {
+    public Conductor Conductor() {
         return conductor;
     }
 
-    public DistanciaRecorrida getDistanciaRecorrida() {
+    public DistanciaRecorrida DistanciaRecorrida() {
         return distanciaRecorrida;
     }
 
-    public TipoCarro getTipoCarro() {
+    public TipoCarro TipoCarro() {
         return tipoCarro;
     }
 }
