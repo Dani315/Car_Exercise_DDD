@@ -7,6 +7,8 @@ import co.com.sofka.business.support.TriggeredEvent;
 import com.exercise.pista.Pista;
 import com.exercise.pista.events.KilometrajeCambiado;
 
+import java.util.List;
+
 @EventListener(eventType = "com.exercise.pista.KilometrajeCambiado")
 public class MoverCarroUseCase extends UseCase<TriggeredEvent<KilometrajeCambiado>, ResponseEvents> {
 
@@ -18,9 +20,7 @@ public class MoverCarroUseCase extends UseCase<TriggeredEvent<KilometrajeCambiad
         var pista = Pista.from(event.getCodigoPista(), retrieveEvents());
 
         pista.MoverCarro(event.getNumeroCarril(), event.getCodigoPista());
-        pista.MoverCarro(event.getNumeroCarril(), event.getCodigoPista());
-        pista.MoverCarro(event.getNumeroCarril(), event.getCodigoPista());
 
-        emit().onSuccess(new ResponseEvents(pista.getUncommittedChanges()));
+       emit().onSuccess(new ResponseEvents(pista.getUncommittedChanges()));
     }
 }

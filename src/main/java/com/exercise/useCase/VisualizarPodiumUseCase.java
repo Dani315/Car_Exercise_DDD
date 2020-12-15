@@ -21,8 +21,10 @@ public class VisualizarPodiumUseCase  extends UseCase<TriggeredEvent<PodiumActua
     @Override
     public void executeUseCase(TriggeredEvent<PodiumActualizado> triggeredEvent) {
         var event = triggeredEvent.getDomainEvent();
+        System.out.println(event.getCodigoJuego());
 
         var videoJuego = VideoJuego.from(event.getCodigoJuego(),retrieveEvents());
+
 
         logger.log(Level.INFO, "Primer ganador "+videoJuego.getPodium().value().primerLugar().Conductor().NombreCompleto());
         logger.log(Level.INFO, "Segundo ganador "+videoJuego.getPodium().value().segundoLugar().Conductor().NombreCompleto());

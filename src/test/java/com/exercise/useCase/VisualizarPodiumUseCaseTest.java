@@ -27,7 +27,7 @@ class VisualizarPodiumUseCaseTest  extends UseCaseHandleBaseTest {
         var useCase = new VisualizarPodiumUseCase();
 
         when(repository.getEventsBy(anyString())).thenReturn(List.of(
-                new VideoJuegoCreado(CodigoJuego.of("123")),
+                new VideoJuegoCreado(),
                 new PrimerLugarAsignado(
                     new Carro(Placa.of("MX5124"),
                     new Conductor(Cedula.of("10013509866"), "Daniela Gaviria",

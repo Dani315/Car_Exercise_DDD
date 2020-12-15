@@ -16,7 +16,7 @@ public class VideoJuego  extends AggregateEvent<CodigoJuego>  {
 
     public VideoJuego(CodigoJuego entityId, boolean estado) {
         super(entityId);
-        appendChange(new VideoJuegoCreado()).apply();
+        appendChange(new VideoJuegoCreado(entityId)).apply();
     }
 
     private VideoJuego(CodigoJuego entityId) {
